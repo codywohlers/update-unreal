@@ -1,9 +1,10 @@
 #!/bin/bash
-# udpate-unreal.sh
-# Downloads and compiles Unreal Engine from Epic's github account.
+# udpate-unreal.sh [-clean]
+# Downloads and compiles Unreal Engine from Epic's github account.  Use argument "-clean" to do a full build.
 # based on https://wiki.unrealengine.com/Building_On_Linux
 # (see also https://github.com/EpicGames/UnrealEngine/tree/release/Engine/Build/BatchFiles/Linux)
 
+# 2015-May-24 code@codywohlers.ca - updated usage description.
 # 2015-May-21 code@codywohlers.ca - initial creation.
 
 
