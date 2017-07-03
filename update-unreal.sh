@@ -6,9 +6,10 @@
 # based on https://wiki.unrealengine.com/Building_On_Linux
 # (see also https://github.com/EpicGames/UnrealEngine/tree/release/Engine/Build/BatchFiles/Linux)
 
-# 2015-Jun-11 code@codywohlers.ca - added check option.
-# 2015-May-24 code@codywohlers.ca - updated usage description.
-# 2015-May-21 code@codywohlers.ca - initial creation.
+# 2017-Jul-03 code@codywohlers.ca - added UnrealPak to make target.
+# 2017-Jun-11 code@codywohlers.ca - added check option.
+# 2017-May-24 code@codywohlers.ca - updated usage description.
+# 2017-May-21 code@codywohlers.ca - initial creation.
 
 
 UNREAL_DIR="/opt/UnrealEngine"  # must be owned by you (don't use sudo)
@@ -38,4 +39,4 @@ make CrashReportClient-Linux-Shipping \
 	ARGS=-clean
 fi
 make
-
+make UnrealPak
