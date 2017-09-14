@@ -1,11 +1,15 @@
 #!/bin/bash
-# udpate-unreal.sh [ -check | -clean ]
+# udpate-unreal.sh [ -check | -clean | -clean-quick]
 # Downloads and compiles Unreal Engine from Epic's github account.
 # - Use argument "-check" to check for an update.
 # - Use argument "-clean" to do a full build.
+# - Use argument "-clean-quick" to do a quick clean (eg. when updating pre-compiled headers)
+#
 # based on https://wiki.unrealengine.com/Building_On_Linux
 # (see also https://github.com/EpicGames/UnrealEngine/tree/release/Engine/Build/BatchFiles/Linux)
-
+#
+# Revision History:
+# 2017-Sep-14 code@codywohlers.ca - changed "-clean-precompiled" argument to "-clean-quick".
 # 2017-Aug-24 code@codywohlers.ca - added "-clean-precompiled" argument.
 # 2017-Jul-03 code@codywohlers.ca - added UnrealPak to make target.
 # 2017-Jun-11 code@codywohlers.ca - added check option.
@@ -37,7 +41,7 @@ make CrashReportClient-Linux-Shipping \
     UnrealFrontend \
     UE4Editor \
     ARGS=-clean
-elif [ "$1" == "-clean-precompiled" ] ;then
+elif [ "$1" == "-clean-quick" ] ;then
     find Engine/Intermediate/Build/Linux/ -name PCH.Core.h.gch -exec rm -v '{}' \;
     find Engine/Intermediate/Build/Linux/ -name PCH.CoreUObject.h.gch -exec rm -v '{}' \;
     find Engine/Intermediate/Build/Linux/ -name PCH.Engine.h.gch -exec rm -v '{}' \;
