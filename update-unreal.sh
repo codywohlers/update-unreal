@@ -9,11 +9,11 @@
 # (see also https://github.com/EpicGames/UnrealEngine/tree/release/Engine/Build/BatchFiles/Linux)
 #
 # Revision History:
+# 2017-Sep-25 code@codywohlers.ca - added --force to git pull.
 # 2017-Sep-14 code@codywohlers.ca - changed "-clean-precompiled" argument to "-clean-quick".
 # 2017-Aug-24 code@codywohlers.ca - added "-clean-precompiled" argument.
 # 2017-Jul-03 code@codywohlers.ca - added UnrealPak to make target.
 # 2017-Jun-11 code@codywohlers.ca - added check option.
-# 2017-May-24 code@codywohlers.ca - updated usage description.
 
 
 UNREAL_DIR="/opt/UnrealEngine"  # must be owned by you (don't use sudo)
@@ -27,7 +27,7 @@ if [ "$1" == "-check" ] ;then
     git status
     exit
 else
-    git pull https://github.com/EpicGames/UnrealEngine.git release  # must have linked your github account to your epic account.
+    git pull --force https://github.com/EpicGames/UnrealEngine.git release  # must have linked your github account to your epic account.
 fi
 
 ./Setup.sh
