@@ -9,12 +9,14 @@
 # (see also https://github.com/EpicGames/UnrealEngine/tree/release/Engine/Build/BatchFiles/Linux)
 #
 # Revision History:
+# 2020-Jan-07 code@codywohlers.ca - updated as per latest wiki instructions.
 # 2017-Sep-25 code@codywohlers.ca - added --force to git pull.
 # 2017-Sep-14 code@codywohlers.ca - changed "-clean-precompiled" argument to "-clean-quick".
 # 2017-Aug-24 code@codywohlers.ca - added "-clean-precompiled" argument.
 # 2017-Jul-03 code@codywohlers.ca - added UnrealPak to make target.
-# 2017-Jun-11 code@codywohlers.ca - added check option.
 
+
+if [[ $(id -u) -eq 0 ]] ;then echo "Error: Please don't run as root" >&2 ;exit 1 ;fi
 
 UNREAL_DIR="/opt/UnrealEngine"  # must be owned by you (don't use sudo)
 
@@ -34,14 +36,16 @@ fi
 ./GenerateProjectFiles.sh
 
 if [ "$1" == "-clean" ] ;then
-make CrashReportClient-Linux-Shipping \
+make CrashReportClient \
+    CrashReportClientEditor \
     ShaderCompileWorker \
-    UnrealPak \
     UnrealLightmass \
     UnrealFrontend \
     UE4Editor \
+    UnrealInsights \
+    UnrealPak \
     ARGS=-clean
-elif [ "$1" == "-clean-quick" ] ;then
+elif [ "$1" == "-clean-quick" ] ;then  # not updated since 4.0x
     find Engine/Intermediate/Build/Linux/ -name PCH.Core.h.gch -exec rm -v '{}' \;
     find Engine/Intermediate/Build/Linux/ -name PCH.CoreUObject.h.gch -exec rm -v '{}' \;
     find Engine/Intermediate/Build/Linux/ -name PCH.Engine.h.gch -exec rm -v '{}' \;

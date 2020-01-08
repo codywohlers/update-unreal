@@ -1,6 +1,0 @@
-[Desktop Entry]
-Name=UE4Editor
-Exec=/opt/UnrealEngine/Engine/Binaries/Linux/UE4Editor
-Type=Application
-Icon=/opt/UnrealEngine/Engine/Source/Programs/UnrealVS/Resources/Icon.png
-Path=/opt/UnrealEngine/Engine/Binaries/Linux
