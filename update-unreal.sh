@@ -9,6 +9,7 @@
 # (see also https://github.com/EpicGames/UnrealEngine/tree/release/Engine/Build/BatchFiles/Linux)
 #
 # Revision History:
+# 2020-May-27 code@codywohlers.ca - updated git to use github ssh.
 # 2020-Jan-07 code@codywohlers.ca - updated as per latest wiki instructions.
 # 2017-Sep-25 code@codywohlers.ca - added --force to git pull.
 # 2017-Sep-14 code@codywohlers.ca - changed "-clean-precompiled" argument to "-clean-quick".
@@ -29,7 +30,7 @@ if [ "$1" == "-check" ] ;then
     git status
     exit
 else
-    git pull --force https://github.com/EpicGames/UnrealEngine.git release  # must have linked your github account to your epic account.
+    git pull --force "git@github.com:EpicGames/UnrealEngine.git" release  # must have linked your github account to your epic account and set up github ssh key.
 fi
 
 ./Setup.sh
