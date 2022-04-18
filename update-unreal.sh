@@ -10,12 +10,11 @@
 #
 #
 # Revision History:
+# 2022-Apr-17 code@codywohlers.ca - update to unreal 5 ( UE4Editor -> UnrealEditor )
 # 2020-May-27 code@codywohlers.ca - updated git to use github ssh.
 # 2020-Jan-07 code@codywohlers.ca - updated as per latest wiki instructions.
 # 2017-Sep-25 code@codywohlers.ca - added --force to git pull.
 # 2017-Sep-14 code@codywohlers.ca - changed "-clean-precompiled" argument to "-clean-quick".
-# 2017-Aug-24 code@codywohlers.ca - added "-clean-precompiled" argument.
-# 2017-Jul-03 code@codywohlers.ca - added UnrealPak to make target.
 
 
 if [[ $(id -u) -eq 0 ]] ;then echo "Error: Please don't run as root" >&2 ;exit 1 ;fi
@@ -43,7 +42,7 @@ make CrashReportClient \
     ShaderCompileWorker \
     UnrealLightmass \
     UnrealFrontend \
-    UE4Editor \
+    UnrealEditor \
     UnrealInsights \
     UnrealPak \
     ARGS=-clean
